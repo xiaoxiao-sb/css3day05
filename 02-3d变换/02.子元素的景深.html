@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            margin: 100px auto;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,0,0,0.3);
+
+            /*开启3d空间，开启3d舞台*/
+            transform-style: preserve-3d;
+            /*景深：元素近大远小*/
+            /*景深不能为负值*/
+            /*perspective: 300px;*/
+
+        }
+        #box {
+            width: 150px;
+            height: 150px;
+            background: blue;
+            transform: translateZ(-100px);
+        }
+        #box2{
+            width: 150px;
+            height: 150px;
+            background: green;
+            /*perspective: 300px;*/
+            /*perspective(300px)  如果给子元素本身设置景深效果   要写在第一位*/
+            transform:perspective(300px) translateZ(-100px);
+
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div id="box">box</div>
+    <div id="box2">box</div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var box = document.getElementById('box');
+
+
+    }
+</script>
+</html>

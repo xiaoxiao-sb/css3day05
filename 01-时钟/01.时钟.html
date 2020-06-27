@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 300px;
+            height: 300px;
+            background: pink;
+            margin: 100px auto;
+            position: relative;
+        }
+        #hour{
+            position: absolute;
+            left:147px;
+            top:90px;
+            width: 6px;
+            height: 60px;
+            background: #000;
+        }
+        #min{
+            position: absolute;
+            left:148px;
+            top:70px;
+            width: 4px;
+            height: 80px;
+            background: #000;
+        }
+        #sec{
+            position: absolute;
+            left:149px;
+            top:50px;
+            width: 2px;
+            height: 100px;
+            background: red;
+
+        }
+        #circle{
+            position: absolute;
+            left:140px;
+            top:140px;
+            width: 20px;
+            height: 20px;
+            background: yellowgreen;
+            border-radius: 50%;
+        }
+        #list{
+            position: relative;
+            list-style: none;
+            width: 300px;
+            height: 300px;
+        }
+        #list li{
+            position: absolute;
+            left:149px;
+            width: 2px;
+            height: 8px;
+            background: #000;
+            /*找谁的变换基点，谁的左上角就是（0,0）坐标点，要根据这个（0,0）坐标点找位置*/
+            transform-origin: 1px 150px;
+        }
+        #list li:nth-child(5n+1){
+            left:148px;
+            width: 4px;
+            height: 12px;
+            transform-origin: 2px 150px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <!--刻度-->
+    <ul id="list"></ul>
+    <!--时针-->
+    <div id="hour"></div>
+    <!--分针-->
+    <div id="min"></div>
+    <!--秒针-->
+    <div id="sec"></div>
+    <!--小圆球-->
+    <div id="circle"></div>
+</div>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+      var list = document.getElementById('list');
+        for (var i = 0; i < 60; i++) {
+            var li = document.createElement('li');
+//            给每一个li设置旋转角度
+            li.style.transform = 'rotate('+6*i+'deg)'
+//            把生成的li 放到容器里边
+            list.appendChild(li)
+        }
+    }
+</script>
+</html>
